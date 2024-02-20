@@ -1,0 +1,854 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: Agbalumo;
+    src: url('../text/agbalumo.ttf');
+}
+
+section{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 2rem;
+    color: white;
+    height: 100vh;
+}
+
+section:nth-child(1){
+    background: linear-gradient(to right, grey, black);
+}
+
+section:nth-child(2){
+    background: linear-gradient(to right, rgb(251, 127, 147), pink);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+section:nth-child(3){
+    background: linear-gradient(to right, grey, black);
+    display: flex;
+    align-items: flex-start;
+}
+
+.icon{
+    margin-right: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.text{
+    display: inline;
+}
+
+.first{
+    margin: 10px;
+}
+
+.second{
+    margin: 10px;
+}
+
+.mail-container,
+.contact-container{
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: linear-gradient(to right, grey, black);
+    border-radius: 80px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.75;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.mail-container{
+    padding-top: 50px;
+}
+
+p.code{ 
+    color: white;
+    padding-left: 60px;
+    padding-top: 20px;
+    position: absolute;
+    cursor: pointer;
+    display: inline;
+}
+
+p.code .hover{
+    display: none;
+}
+
+p.code:hover .hover{
+    display: inline;
+}
+
+p.code:hover .text{
+    display: none;
+}
+
+nav{
+    text-align: right;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: Farro;
+    z-index: 1;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    margin-right: 60px;
+    font-family: Agbalumo;
+    font-size: 28px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+
+p a{
+    text-decoration: none;
+    color: black;
+    margin-right: 60px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.mail-container::after{
+    content: 'Email us!'; /*email us is generated content pseudo class*/
+    display: block;
+    position: absolute;
+    font-weight: bold;
+}
+
+.contact-container > p{
+    color: white;
+}
+
+.form-container :not(.label){
+    opacity: 0.9;
+}
+
+form textarea + button{
+    margin-top: 10px;
+    background-color: green;
+}
+
+.wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    perspective: 10px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgb(251, 127, 147), pink);
+}
+
+header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+}
+
+.background{
+    transform: translateZ(-10px)scale(2);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.foreground{
+    transform: translateZ(-5px)scale(1.5);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@keyframes changeColor{
+    50% {color: white; }
+    100% {color: black; }
+}
+
+.title{
+    font-size: 500%;
+    color: white;
+    text-shadow: 0 0 5px black;
+    animation: changeColor 3s infinite;
+}
+
+img{
+    max-width: 100%;
+}
+
+div{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.container a{
+    display: inline;
+    color: black;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    font-weight: bold;
+    font-family: Agbalumo;
+}
+
+.about, .blogs, .contact{
+    display: inline-block;
+    color: black;
+    margin-right: 20px;
+    padding-top: 40px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    font-weight: bold;
+}
+
+
+.card-container{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 320px;
+    opacity: 0.75;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.download-btn{
+    background-color: dodgerblue;
+    color: white;
+    padding: 20px 30px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 30px;
+}
+
+.download-btn:hover{
+    background-color: royalblue;
+}
+
+.download{
+    margin-top: 100px;
+}
+
+.projects{
+    background-color: dodgerblue;
+    color:white;
+    padding:10px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.projects:hover{
+    background-color: royalblue;
+    text-decoration: none;
+}
+
+.card-container-2{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 320px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.card-container-3{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 320px;
+    margin-top: 50px;
+    margin-right: 20px;
+    opacity: 0.75;
+}
+
+p.first,
+p.second{
+    font-size: 80px;
+}
+
+img.icon{
+    width:80px;
+    height: 80px;
+}
+
+.send-mail{
+    text-decoration: none;
+    color: white;
+}
+
+.mail-container:hover{
+    background: linear-gradient(to right, black, grey);
+    cursor: pointer;
+}
+
+.contact-wrapper{
+    height: 600px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-top: 40px;
+}
+
+.form-wrapper{
+    padding-left: 20px;
+    padding-top: 80px;
+}
+
+.form-container{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.75;
+    margin-top: 20px;
+    width: 500px;
+    height: 470px;
+    border-radius: 20px;
+    padding-top: 40px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+}
+
+label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea{
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    margin: 5px 0;
+    background: transparent;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder{
+    color: black;
+}
+
+button{
+    background-color: dodgerblue;
+    color: white;
+    padding: 20px 30px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: royalblue;
+}
+
+footer{
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+footer p{
+    padding-right: 700px;
+    padding-left: 50px;
+}
+
+footer p:first-child{
+    margin:0;
+    font-size: 18px;
+}
+
+footer p:last-child{
+    margin: 0;
+    font-size: 18px;
+}
+
+footer a{
+    color: dodgerblue;
+    text-decoration: none;
+    padding-right: 20px;
+    padding-left: 50px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+h2{
+    color: black;
+    text-align: center;
+}
+
+.feedback{
+    width: 500px;
+    background-color: #333;
+    padding: 20px;
+    margin-top: 80px;
+    margin-top: 80px;
+    margin-left: 500px;
+    overflow: auto;
+    position: relative;
+    text-align: justify;
+    margin-right: 500px;
+}
+
+.user{
+    color: white;
+}
+
+.submit-btn{
+    text-align: center;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    background-color: dodgerblue;
+    margin-left: 175px;
+}
+
+.submit-btn:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+.reasons{
+    color:white;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerblog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.boxblog{
+    width: 350px;
+    background-color: white;
+    border: 1px solid lightgray;
+    margin: 20px 20px;
+}
+
+.imgblog{
+    width: 100%;
+    height: auto;
+}
+
+.imgblog img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.textblog{
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textblog .titleblog{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: black;
+}
+
+.textblog p{
+    color: grey;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+}
+
+.textblog a{
+    color: black;
+}
+
+.textblog a:hover{
+    color: pink;
+}
+
+input[type="email"]:valid{
+    border-color: lightgreen;
+}
+
+input[type="email"]:invalid{
+    border-color: red;
+}
+
+.about-me{
+    width: 500px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 80px;
+    margin-top: 80px;
+    margin-left: 500px;
+    overflow: auto;
+    position: relative;
+    text-align: justify;
+    margin-right: 500px;
+    font-size: 20px;
+    height: 500px;
+}
+
+.project-container{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 580px;
+    opacity: 0.75;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background: black;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #555;
+}
+
+@media(max-width:1250px){
+    .boxblog{
+        width: 300px;
+    }
+}
+
+@media(max-width:1100px){
+    .boxblog{
+        width: 90%;
+    }
+}
+
+@media(max-width: 550px){
+    .boxblog{
+        margin: 20px 10px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .card-container{
+        font-size: 15px;
+    }
+    .download-btn{
+        font-size: 10px;
+    }
+    .card-container-2{
+        font-size: 15px;
+    }
+    .form-container{
+        width: auto;
+        height: auto;
+        font-size: 10px;
+    }
+    .contact-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:768px){
+    nav{
+        text-align: center;
+    }
+    nav a{
+        margin-right: 30px;
+        font-size: 18px;
+    }
+    .card-container,
+    .card-container-2,
+    .card-container-3{
+        width: 100%;
+        margin-right: 0;
+    }
+    .card-container,
+    .card-container-2,
+    .card-container-3,
+    .form-wrapper,
+    .contact-wrapper{
+        padding: 20px;
+        margin: 20px auto;
+        font-size: 12px;
+    }
+    .download-btn{
+        width:auto;
+        height: auto;
+        font-size: 5px;
+    }
+    .form-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 10px;
+    }
+    .contact-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 5px;
+    }
+    .about-me{
+        width: 90%;
+        margin: 20px auto;
+        font-size: 18px;
+    }
+    .project-container{
+        width: 90%;
+        margin: 20px auto;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 518px) {
+    .title{
+        font-size: 300%;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea{
+        width: 90%;
+        margin: 5px auto;
+    }
+    button{
+        width:20%;
+        height:10%
+    }
+    .download-btn{
+        width: auto;
+        height: auto;
+        font-size: 2px;
+    }
+    .form-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 2px;
+    }
+    .contact-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 2px;
+    }
+    .feedback,
+    .contact-wrapper{
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .download-btn{
+        width: auto;
+        height: auto;
+        font-size: 1px;
+    }
+    .form-wrapper{
+        width: auto;
+        height: auto;
+        font-size: 2px;
+    }
+    .contact-wrapper{
+        width: auto;
+        height: auto;
+    }
+    .about-me{
+        width: 90%;
+        margin: 10px auto;
+        font-size: 16px;
+        height: 67%;
+    }
+    .project-container{
+        width: 90%;
+        margin: 10px auto;
+        font-size: 16px;
+    }
+    footer{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    footer a{
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .download-btn{
+        width: auto;
+        height: auto;
+        font-size: 1px;
+    }
+}
+
+@media screen and (max-width: 1410px){
+    .about-me,
+    .project-container{
+        width: 80%;
+        margin: 20px auto;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .about-me,
+    .project-container{
+        font-size:10px;
+        width: 70%;
+        margin: 20px auto;
+        height: 60%
+    }
+}
+
+@media screen and (max-width: 676px){
+    .project-container{
+        width: 80%;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .project-container{
+        width: 60%;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 380px){
+    .project-container{
+        width: 50%;
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 240px){
+    .project-container{
+        width: 40%;
+        font-size: 4px;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    .containerblog{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .boxblog{
+        width: 45%;
+        margin: 20px 0;
+        font-size: 16px;
+    }
+    .textblog{
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 1470px){
+    .feedback{
+        width: 90%;
+        margin: 20px auto;
+        font-size: 20px;
+    }
+}
