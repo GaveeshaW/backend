@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0"> <!--Responsive-->
+    <link rel="icon" type="image/x-icon" href="../images/heart.png"> <!--image on the top-->
+    <title>Gaveesha Welhena </title>
+    <link rel="stylesheet" href="portfolio.css"> <!--linking the stylesheet-->
+</head>
+
+<body>
+    <div class="wrapper"> <!--wraps all the content-->
+        <header id="top"> <!--named this top, so that i can add an arrow to jump to the top from the bottom using a button-->
+            <div class="container"> <!--container where i store my name-->
+                <p class="code">
+                    <a href="../main/main.html" class="ahover"> <!--when i click on my name, it redirects to the main page-->
+                        <span class="text">&#169; Code by Gaveesha </span> <!--&#169 is the code for copyright symbol-->
+                        <span class="hover">Gaveesha Welhena</span> <!--when i hover over code by gaveesha, it displays gaveesha welhena-->
+                    </a>
+                </p>
+            </div>
+            <nav>
+                <a class="about" href="../about/about.html">About</a> <!--when clicked on about, it redirects to the about page-->
+                <a class="blogs" href="../blogs/blogs.html">Projects</a> <!--when clicked on blogs, it redirects to the blogs page-->
+                <a class="contact" href="../contact/contact.html">Contact</a> <!--when clicked on contact, it redirects to the contact page-->
+            </nav>
+            <img src="../images/sky.jfif" class="background" alt="sky"> <!--background images-->
+            <img src="../images/bgimg.png" class="foreground" alt="balloons"> <!--this adds the parallax effect-->
+            <h1 class="title">Welcome!</h1>
+        </header>
+        <section>
+            <div class="card-container"> <!--container to display my objective-->
+                <h1> OBJECTIVE: </h1>
+                <p> Goal-driven individual seeking a software engineering intern to gain practical experience and contribute the maximum to software projects while further developing my technical skills. Eager to work with a team of professionals, learn new things from experienced mentors and make a meaningful impact on the company's goals.</p>
+            </div>
+            <div class="card-container-2"> <!--container to display my CV-->
+                <h1>Check out My CV!</h1>
+                <p>Please consider reviewing my CV for your consideration and I am eager to join your team. I look forward to contributing to your team! </p>
+                <div class="download">
+                    <a href="../files/G4_20220594.pdf" download="Gaveesha_20220594_CV" class="download-btn">Download My CV here!</a> <!--the button to download my CV-->
+                </div>
+            </div>
+            <div class="card-container-3"> <!--container to display my skills-->
+                <h1>My skills</h1>
+                <ul> <!--unordered list-->
+                    <li>HTML & CSS</li> <!--list items-->
+                    <li>Java, Javascript & TypeScript</li>
+                    <li>Python</li>
+                    <li>MySQL</li>
+                    <li>Angular</li>
+                    <li>React</li>
+                    <li>PHP</li>
+                    <li>Jest & Supertest</li>
+                    <li>Jasmine</li>
+                    <li>Node</li>
+                    <li>MongoDB & FireBase</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="contact-wrapper"> <!--this wraps both let's work together container and email button together so that it can be the same size and same place-->
+                <div class="contact-container"> <!--container for text-->
+                    <img class="icon" src="../images/heart.png" alt="image">
+                    <div class="text">
+                        <p class="first">Let's work </p>
+                        <p class="second"> together</p>
+                    </div>
+                </div>
+                <div class="mail-container"> <!--container to include a mail button-->
+                    <a href="mailto:gaveeshawelhena@gmail.com" class="send-mail">gaveeshawelhena@gmail.com</a> <!--mail to -->
+                </div>
+            </div>
+            <div class="form-wrapper"> <!--this wraps the name, email address, message and send button all together so that all will be same size and at the same place-->
+                <div class="form-container"> <!--this is the form container-->
+                    <h2>Contact Me</h2>
+                    <form id="form"> <!--this is the start of the form element-->
+                        <label for="name">Name: </label>
+                        <input type="text" id="name" placeholder="Enter your name" required> <!--its  a text box-->
+    
+                        <label for="email">Email Address: </label>
+                        <input type="email" id="email" placeholder="Enter your email address" required> <!--its a text box-->
+    
+                        <label for="message">Message: </label>
+                        <textarea id="message" rows="8" placeholder="Enter your message" required></textarea> <!--its a textarea-->
+    
+                        <button type="submit">Send</button> <!--button to send the response-->
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer datetime="2023-11-11T14:03:00Z"> <!--footer content goes in here-->
+            <p> &#169; Version 2024 - Gaveesha Welhena. All rights reserved.</p> <!--first comes the name in a paragraph tag-->
+            <a href="https://www.github.com/GaveeshaW">GitHub</a>
+            <a href="https://www.linkedin.com/in/gaveesha-welhena-59744224b/">LinkedIn</a> <!--next is the link to my linkedin account-->
+            <a href="#top" class="back-to-top">&#8679; Back to top</a> <!--link to the top (#top(id))-->
+        </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const form = document.getElementById("form");
+        
+                form.addEventListener("submit", function(event) {
+                    event.preventDefault();
+        
+                    const formData = {
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        message: document.getElementById("message").value
+                    };
+        
+                    // Send form data to the backend via fetch
+                    fetch('http://localhost:5000/send', {
+                        // Use your deployed backend URL
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Message sent successfully!');
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error sending message.');
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
+
+<!--references-->
+<!--www.dennissnellenberg.com-->
+<!--www.w3schools.com-->
