@@ -10,7 +10,7 @@
 
 <body>
     <div class="wrapper"> <!--wraps all the content-->
-        <header id="top"> <!--named this top, so that i can add an arrow to jump to the top from the bottom using a button-->
+        <header class="top" id="top"> <!--named this top, so that i can add an arrow to jump to the top from the bottom using a button-->
             <div class="container"> <!--container where i store my name-->
                 <p class="code">
                     <a href="../main/main.html"> <!--when i click on my name, it redirects to the main page-->
@@ -24,56 +24,98 @@
                 <a class="blogs" href="../blogs/blogs.html">Projects</a> <!--when clicked on blogs, it redirects to the blogs page-->
                 <a class="contact" href="../contact/contact.html">Contact</a> <!--when clicked on contact, it redirects to the contact page-->
             </nav>
+        </header>
 
-            <div class="containerblog"> <!--this container wraps all the two blogs and the contact me container-->
-                <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
-                    <div class="imgblog"> <!--this is the container for the image-->
-                        <img src="../images/blog1.jpg" alt="Blog photo 1"> <!--image link-->
-                        <div class="textblog"> <!--the container for the text-->
-                            <span>14 November 2023 / Blog</span>
-                            <a href="../files/AI_future_blog.pdf" class="titleblog">Does the future of AI excites you or scare you?</a> <!--inlcudes the blog link-->
-                            <p>AI can be introduced as the machines carefully studying about the senses and actions of man using a data pattern found in a large number of data and algorithms which is entered to the system by man and simulate the same pattern to learn fast automatically using software.</p>
-                            <a href="../files/AI_future_blog.pdf">Read more</a> <!--This is a blog that I won a scholarship award from. -->
-                            <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
-                    <div class="imgblog"> <!--this is the container for the image-->
-                        <img src="../images/blog2.jpg" alt="Blog photo 2"> <!--image link-->
-                        <div class="textblog"> <!--the container for the text-->
-                            <span>14 November 2023 / Blog</span>
-                            <a href="https://gaveeshawelhena.blogspot.com/2023/04/httpsgaveeshawelhena.blogspot.comtravel-guide-and-tips-on-sri-lanka.html" class="titleblog">Would you like to visit Sri Lanka, the wonder of Asia?</a> <!--inlcudes the blog link-->
-                            <p>Nestled in the heart of the Indian Ocean, Sri Lanka is a breathtakingly beautiful island waiting to be explored. From the misty mountains and the lush green tea plantations...</p>
-                            <a href="https://gaveeshawelhena.blogspot.com/2023/04/httpsgaveeshawelhena.blogspot.comtravel-guide-and-tips-on-sri-lanka.html">Read more</a> <!--this is the blog that i did on blogger.com-->
-                            <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
-                    <div class="imgblog"> <!--this is the container for the image-->
-                        <img src="../images/blog3.jfif" alt="Blog photo 3"> <!--image link-->
-                        <div class="textblog"> <!--the container for the text-->
-                            <span>14 November 2023 / Blog</span>
-                            <a href="../contact/contact.html" class="titleblog">Would you love to collabarate and do a project together?</a> <!--redirects to my contact page-->
-                            <p>I am a passionate software enginnering intern. If you would love to collobarate, why wait more? Click the link below and contact me today!</p>
-                            <a href="../contact/contact.html">Click the link</a> 
-                            <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
-                        </div>
+        <section>
+        <div class="containerblog"> <!--this container wraps all the two blogs and the contact me container-->
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img5.jpg" alt="Blog photo 2"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="https://github.com/GaveeshaW/properties.git" class="titleblog">Estate Agent client-side web application</a> <!--inlcudes the blog link-->
+                        <p><b>Nov 2023 - Jan 2023</b></p>
+                        <p>Built a web application using react for a property displaying web application. The user can view the property with property images, description, number of rooms, date added, floor plan and the google map of the property.</p>
+                        <a href="https://github.com/GaveeshaW/properties.git">Get the code</a> <!--this is the blog that i did on blogger.com-->
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
                     </div>
                 </div>
             </div>
 
-        </header>
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img1.jpg" alt="Blog photo 3"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="https://github.com/GaveeshaW/todolist.git" class="titleblog">To-Do List web application</a> <!--redirects to my contact page-->
+                        <p><b>July 2024 - Sep 2024</b></p>
+                        <p>An Angular and Node.js based To-Do List Web Application showcasing skills in frontend and backend development, API integration and MongoDB. Used Jasmine to write unit tests for the Angular materials, used Jest and Supertest to write integration tests for the backend API and used Postman to test the endpoints. </p>
+                        <a href="https://github.com/GaveeshaW/todolist.git">Get the code</a> 
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
+                    </div>
+                </div>
+            </div>
 
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img6.jpg" alt="Blog photo 3"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="https://github.com/CS-67/EDUFIX.git" class="titleblog">Course recommendation system</a> <!--redirects to my contact page-->
+                        <p><b>Sep 2023 - Apr 2024</b></p>
+                        <p>Built a system using Python, React, Figma, MySQL within a group to recommend courses according to the user's interest and what they input about themselves. This project used ML to give the best recommendation to the users.</p>
+                        <a href="https://github.com/CS-67/EDUFIX.git">Get the code</a> 
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="containerblog"> <!--this container wraps all the two blogs and the contact me container-->
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img2.jpg" alt="Blog photo 1"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="https://github.com/GaveeshaW/shoppingsystem.git" class="titleblog">Online Shopping System</a> <!--inlcudes the blog link-->
+                        <p><b>Nov 2023 - Jan 2024</b></p>
+                        <p>Built a system using Java for the manager of the shopping site to add, delete, save and display products in the system. Also, built a GUI using Java for the customer to add products to cart, add discounts and view their shopping carts.</p>
+                        <a href="https://github.com/GaveeshaW/shoppingsystem.git">Get the code</a> <!--This is a blog that I won a scholarship award from. -->
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img3.jpg" alt="Blog photo 1"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="" class="titleblog">Academic progression system</a> <!--inlcudes the blog link-->
+                        <p><b>Mar 2023 - Apr 2023</b></p>
+                        <p>Built a small system using Python which gets the pass, defer and fail credits of a user and predicts the progression outcome at the end of each academic year. </p>
+                        <a href="">Get the code</a> 
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="boxblog"> <!--this is the main box which contains all the text and the image-->
+                <div class="imgblog"> <!--this is the container for the image-->
+                    <img src="../images/img4.jpg" alt="Blog photo 2"> <!--image link-->
+                    <div class="textblog"> <!--the container for the text-->
+                        <a href="" class="titleblog">Queue management and entry tracking system for a restaurant</a> <!--inlcudes the blog link-->
+                        <p><b>May 2023 - July 2023</b></p>
+                        <p>Built a system using java which simulates a restaurant queue system which updates customers in the respective queues when added, decreases burgers from stock when a customer buys and calculates the income of each queue.</p>
+                        <a href="">Get the code</a> <!--this is the blog that i did on blogger.com-->
+                        <time datetime="2023-11-14T14:00"></time> <!--datetime attribute-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
         <footer datetime="2023-11-11T14:03:00Z"> <!--datetime attribute-->
             <p> &#169; Version 2024 - Gaveesha Welhena. All rights reserved.</p> <!--first comes the name in a paragraph tag-->
             <a href="https://www.github.com/GaveeshaW">GitHub</a>
             <a href="https://www.linkedin.com/in/gaveesha-welhena-59744224b/">LinkedIn</a> <!--next is the link to my linkedin account-->
             <a href="#top" class="back-to-top">&#8679; Back to top</a> <!--link to the top (#top(id))-->
         </footer> <!--footer ends-->
+    
     </div>
 </body>
 </html>
