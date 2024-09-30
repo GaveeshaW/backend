@@ -111,7 +111,8 @@
                     };
         
                     // Send form data to the backend via fetch
-                    fetch('https://your-backend-url.com/send', { // Use your deployed backend URL
+                    fetch('http://localhost:5000/send', {
+                        // Use your deployed backend URL
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

@@ -100,7 +100,7 @@
             <div class="form-wrapper"> <!--this wraps the name, email address, message and send button all together so that all will be same size and at the same place-->
                 <div class="form-container"> <!--this is the form container-->
                     <h2>Contact Me</h2>
-                    <form id="form"> <!--this is the start of the form element-->
+                    <form id="form" action="/send" method="POST"> <!--this is the start of the form element-->
                         <label for="name">Name: </label>
                         <input type="text" id="name" placeholder="Enter your name" required> <!--its  a text box-->
     
@@ -122,17 +122,71 @@
                 <a href="#top" class="back-to-top">&#8679; Back to top</a> <!--link to the top (#top(id))-->
             </footer>
     </div>
-    <script> /*javascript code to add an alert message when the message is successfully submitted*/
-        document.addEventListener("DOMContentLoaded", function(){
-            const form = document.getElementById("form"); /*gets form element by its id and assigns it to the 'form' variable*/
-
-            form.addEventListener("submit", function(event){ /*adds an event listener to the 'submit' event*/
-                event.preventDefault(); /*prevents from default form submission behaviour*/
-                alert("Successfully submitted!"); /*alert box and the message that should be written on it*/
-                form.reset(); /*this line is to reset the form after submitting and displaying the alert box*/
-            })
-        })
-    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const feedbackForm = document.getElementById("submit");
+            const contactForm = document.getElementById("form");
+    
+            // Handle feedback form submission
+            feedbackForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                const feedbackData = {
+                    rating: document.querySelector('input[name="comments"]:checked').id,
+                    reasons: document.getElementById("reasons").value,
+                    platform: document.getElementById("question").value,
+                    preferredPlatform: document.getElementById("option").value
+                };
+    
+                // Send feedback data to the backend
+                fetch('http://localhost:5000/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(feedbackData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Feedback sent successfully!');
+                    feedbackForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error sending feedback.');
+                });
+            });
+    
+            // Handle contact form submission
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                const contactData = {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    message: document.getElementById("message").value
+                };
+    
+                // Send contact data to the backend
+                fetch('http://localhost:5000/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(contactData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error sending message.');
+                });
+            });
+        });
+    </script>     
 </body>
 </html>
 
