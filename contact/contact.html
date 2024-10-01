@@ -6,6 +6,12 @@
     <link rel="icon" type="image/x-icon" href="../images/heart.png"> <!--image on the top-->
     <title>Contact - Gaveesha Welhena </title> 
     <link rel="stylesheet" href="../main/portfolio.css"> <!--link to the stylesheet-->
+    <script type="text/javascript" src="https:///cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YRqPqyLoQOaSNrj7C");
+        })();
+    </script>
 </head>
 
 <body>
@@ -13,7 +19,7 @@
         <header id="top"> 
             <div class="container"> <!--container where i store my name-->
                 <p class="code">
-                    <a href="../main/main.html"> <!--when i click on my name, it redirects to the main page-->
+                    <a href="../index.html"> <!--when i click on my name, it redirects to the main page-->
                         <span class="text">&#169; Code by Gaveesha </span> <!--&#169 is the code for copyright symbol-->
                         <span class="hover">Gaveesha Welhena</span> <!--when i hover over code by gaveesha, it displays gaveesha welhena-->
                     </a>
@@ -29,7 +35,7 @@
                 <h2>Feedback form</h2><br><br> 
                 <form id="submit" action="mailto:gaveeshawelhena@gmail.com"> <!--the action is to mail the answers to my email-->
                     <div class="user"> 
-                        <p>How satisfied were you with our website today? Choose from 1 to 10, 1 for extremely dissatisfied and 10 for extremely satisfied.</p><br>
+                        <label for="rating">How satisfied were you with our website today? Choose from 1 to 10, 1 for extremely dissatisfied and 10 for extremely satisfied.</label><br>
                         <input type="radio" name="comments" id="one"> <!--all the values to from here to below are radio buttons to enter user satisfaction-->
                         <label for="one">1 &nbsp;</label> <!--&nbsp is to tell that the next point should be next to this radio button simply 'non breaking space'-->
                         <input type="radio" name="comments" id="two">
@@ -55,7 +61,7 @@
                         <label for="reasons">Give us reasons for your feedback.</label><br> <!--a label which shows this content-->
                         <textarea class=reasons name="reasons" id="reasons"></textarea><br><br><br> <!--textarea where a user can enter why they gave this rating-->
 
-                        <label for="question">Using what platform did you fill in this today?</label><br> <!--label which asks from what device they filled the form today-->
+                        <label for="platform">Using what platform did you fill in this today?</label><br> <!--label which asks from what device they filled the form today-->
                         <select name="question" id="question">
                             <option value="" id="" disabled="" selected="">Please select</option> <!--this option is disabled and cannot be chosen and is selected to be displayed before the user enters anything-->
                             <option value="phone">Phone</option> <!--this and the other below are options to choose for the user-->
@@ -66,15 +72,8 @@
                         </select>
                         <br><br><br> <!--line breaks-->
 
-                        <label for="option">If you fill this form, using what would you hope to fill this?</label> <!--label which asks from what device would they like to fill the form again-->
-                        <select name="option" id="option">
-                            <option value="" id="" disabled="" selected="">Please select</option> <!--this option is disabled and cannot be chosen and is selected to be displayed before the user enters anything-->
-                            <option value="phone">Phone</option> <!--this and the other below are options to choose for the user-->
-                            <option value="tablet">Tablet</option>
-                            <option value="iPad">iPad</option>
-                            <option value="laptop">Laptop</option>
-                            <option value="Monitor">Monitor</option>
-                        </select>
+                        <label for="email">Enter your email address</label> <!--label which asks from what device would they like to fill the form again-->
+                        <input type="email" id="email" name="email" required>
                         <br><br><br>
 
                         <div class="sbt-btn"> <!--this is the submit button class to submit the form via email-->
@@ -105,8 +104,8 @@
                         <input type="text" id="name" placeholder="Enter your name" required> <!--its  a text box-->
     
                         <label for="email">Email Address: </label>
-                        <input type="email" id="email" placeholder="Enter your email address" required> <!--its a text box-->
-        
+                        <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required>
+
                         <label for="message">Message: </label>
                         <textarea id="message" rows="8" placeholder="Enter your message" required></textarea> <!--its a textarea-->
         
@@ -122,7 +121,7 @@
                 <a href="#top" class="back-to-top">&#8679; Back to top</a> <!--link to the top (#top(id))-->
             </footer>
     </div>
-    <script>
+    <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
             const feedbackForm = document.getElementById("submit");
             const contactForm = document.getElementById("form");
@@ -130,53 +129,51 @@
             // Handle feedback form submission
             feedbackForm.addEventListener("submit", function(event) {
                 event.preventDefault();
-    
+
                 const feedbackData = {
-                    rating: document.querySelector('input[name="comments"]:checked').id,
+                    rating: document.querySelector('input[name="comments"]:checked') ? document.querySelector('input[name="comments"]:checked').id : "No rating given",
                     reasons: document.getElementById("reasons").value,
-                    platform: document.getElementById("question").value,
-                    preferredPlatform: document.getElementById("option").value
+                    platform: document.getElementById("question").value, // Corrected to use 'question' for platform
+                    email: document.getElementById("email").value
                 };
-    
-                // Send feedback data to the backend
-                fetch('http://localhost:5000/feedback', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(feedbackData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert('Feedback sent successfully!');
-                    feedbackForm.reset();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error sending feedback.');
-                });
+
+                console.log("Feedback Data:", feedbackData); // Debugging line
+
+                // Send feedback data using EmailJS
+                emailjs.send("service_mhecogd", "template_g4nx6ob", feedbackData)
+                    .then(response => {
+                        alert('Feedback sent successfully!');
+                        feedbackForm.reset();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error sending feedback.');
+                    });
             });
-    
+
+
             // Handle contact form submission
             contactForm.addEventListener("submit", function(event) {
                 event.preventDefault();
-    
+
+                const emailValue = document.getElementById("contactEmail").value; // Get the updated email value
+                console.log("Email Value:", emailValue); // Debugging line to check email value
+
                 const contactData = {
                     name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
+                    email: emailValue, // Use the new variable holding the correct email value
                     message: document.getElementById("message").value
                 };
-    
-                // Send contact data to the backend
-                fetch('http://localhost:5000/send', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(contactData)
+
+                console.log("Feedback Data:", contactData); // Log the contact data, including email
+
+                // Send contact data to EmailJS
+                emailjs.send("service_mhecogd", "template_9vco5iv", {
+                    name: contactData.name,
+                    email: contactData.email,
+                    message: contactData.message
                 })
-                .then(response => response.json())
-                .then(data => {
+                .then(response => {
                     alert('Message sent successfully!');
                     contactForm.reset();
                 })
@@ -186,7 +183,7 @@
                 });
             });
         });
-    </script>     
+    </script>         
 </body>
 </html>
 
